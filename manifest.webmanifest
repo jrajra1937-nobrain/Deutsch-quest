@@ -1,0 +1,15 @@
+{
+  "name": "Deutsch Quest — Français / Deutsch",
+  "short_name": "Deutsch Quest",
+  "description": "Leçons, exercices à variantes, tests et révision des erreurs pour progresser en allemand de A2 vers B1.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#080b11",
+  "theme_color": "#080b11",
+  "icons": [
+    {"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}
