@@ -1,0 +1,47 @@
+/* Deutsch Quest v5 — Germany Week / adaptive theme */
+:root[data-theme="light"]{
+  --bg:#f2eee6;--panel:#fbf8f2;--panel2:#f2ece5;--panel3:#e8e1d8;--text:#22252b;--muted:#6f7784;
+  --line:rgba(48,55,66,.11);--gold:#9c7b28;--red:#c85f6d;--good:#4d9b75;--blue:#708fd7;--violet:#987dbd;
+  --cyan:#4f9ca3;--shadow:0 22px 65px rgba(70,62,50,.13);
+}
+:root[data-theme="light"] body{
+  background:radial-gradient(circle at 12% -8%,rgba(150,181,228,.28),transparent 31%),radial-gradient(circle at 94% 3%,rgba(216,183,218,.24),transparent 26%),linear-gradient(180deg,#f8f4ed,#f0ebe4 58%,#eee8df);
+}
+:root[data-theme="light"] body:before{opacity:.42;background-image:linear-gradient(rgba(71,80,94,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(71,80,94,.035) 1px,transparent 1px)}
+:root[data-theme="light"] .hero{background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(247,241,232,.76))}
+:root[data-theme="light"] .hero p,:root[data-theme="light"] .context,:root[data-theme="light"] .feedbackBody{color:#646d7b}
+:root[data-theme="light"] .levelCard{background:rgba(255,255,255,.56)}
+:root[data-theme="light"] .stat{background:rgba(255,255,255,.52)}
+:root[data-theme="light"] .action{background:linear-gradient(145deg,#faf7f1,#eee8df)}
+:root[data-theme="light"] .action.primaryAction{background:linear-gradient(145deg,#dce8ff,#e9def0);color:#232731}
+:root[data-theme="light"] .mission,:root[data-theme="light"] .panel,:root[data-theme="light"] .lessonCard{background:linear-gradient(145deg,#fbf8f3,#eee9e2)}
+:root[data-theme="light"] .questionCard,:root[data-theme="light"] .lessonBox,:root[data-theme="light"] .weakItem,:root[data-theme="light"] .saveCard,:root[data-theme="light"] .resultBox,:root[data-theme="light"] .feedback{background:#f7f3ed}
+:root[data-theme="light"] .combo{background:#ede8e1}
+:root[data-theme="light"] .option,:root[data-theme="light"] .token,:root[data-theme="light"] .secondaryBtn{background:#eee9e2;color:#2a2e35;border-color:#d7d0c6}
+:root[data-theme="light"] .textInput{background:#fffdf9;color:#252a31;border-color:#d4ccc2}
+:root[data-theme="light"] .sentenceBox{background:rgba(255,255,255,.45);border-color:#cfc7bd}
+:root[data-theme="light"] .exampleDE,:root[data-theme="light"] .de{color:#25282e}
+:root[data-theme="light"] .fr,:root[data-theme="light"] .exampleFR{color:#747d8b}
+:root[data-theme="light"] .progress,:root[data-theme="light"] .miniBar{background:#ded8d0}
+:root[data-theme="light"] .mobileNav{background:rgba(248,244,237,.88);border-color:rgba(55,62,72,.10);box-shadow:0 18px 40px rgba(69,62,52,.17)}
+:root[data-theme="light"] .mobileNav button{color:#7b8190}
+:root[data-theme="light"] .mobileNav button.active{background:rgba(103,125,173,.11);color:#303640}
+:root[data-theme="light"] .installNote{background:rgba(255,255,255,.45)}
+:root[data-theme="light"] .toast{background:#fffaf3;color:#2c3037}
+:root[data-theme="light"] .back{color:#5d6673}
+
+.exchangeHero{isolation:isolate}
+.exchangeHero:before{content:"GERMANY 01W";position:absolute;right:22px;top:17px;font-size:9px;letter-spacing:2px;font-weight:950;color:var(--muted);opacity:.55}
+.heroTags{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}.heroTags span{font-size:8px;letter-spacing:1.15px;font-weight:950;padding:7px 9px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.035);color:var(--muted)}
+.quickMission{margin:12px 0 0;border:1px solid var(--line);border-radius:20px;padding:14px 15px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(135deg,rgba(114,214,220,.055),rgba(139,169,255,.045))}
+.quickMissionTitle{font-weight:920;font-size:14px;margin-top:4px}.quickMissionActions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.quickMissionActions button{border:1px solid var(--line);background:rgba(255,255,255,.055);color:var(--text);border-radius:12px;padding:10px 12px;font-weight:900;font-size:10px}
+.lessonWide{margin-top:12px}.examplesWide{margin-top:12px}.vocabGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.vocabRow{border:1px solid var(--line);border-radius:13px;padding:10px;background:rgba(255,255,255,.025)}.vocabDE{font-size:12px;font-weight:900}.vocabFR{font-size:10px;color:var(--muted);margin-top:3px;line-height:1.35}
+.themeBtn{min-width:50px;font-size:9px;letter-spacing:.5px}
+
+@media(max-width:760px){
+  :root[data-theme="light"] body{background:radial-gradient(circle at 50% -12%,rgba(150,181,228,.27),transparent 35%),linear-gradient(180deg,#f8f4ed,#f0ebe4 64%,#eee8df)}
+  .quickMission{align-items:flex-start;flex-direction:column}.quickMissionActions{width:100%;display:grid;grid-template-columns:1fr 1fr}.quickMissionActions button{min-height:44px}
+  .vocabGrid{grid-template-columns:1fr}.vocabRow{padding:11px 12px}.vocabDE{font-size:13px}.vocabFR{font-size:11px}
+  .exchangeHero:before{right:16px;top:13px}.heroTags{margin-top:13px}
+  .themeBtn{min-width:44px;padding:0 7px}.saveTop{display:none}
+}
