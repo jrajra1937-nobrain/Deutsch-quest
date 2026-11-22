@@ -1,0 +1,19 @@
+{
+  "name": "English Quest | A2 to C1",
+  "short_name": "English Quest",
+  "description": "英語のA2〜C1トレーニング。4択、読解、発話、作文、習得判定。",
+  "lang": "ja",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f8fa",
+  "theme_color": "#f8fafc",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
