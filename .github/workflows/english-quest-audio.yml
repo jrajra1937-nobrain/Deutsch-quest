@@ -50,5 +50,7 @@ jobs:
             echo "No new recordings to commit"
           else
             git commit -m "Add 304 prerecorded English Quest pronunciation clips"
-            git push
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
           fi
