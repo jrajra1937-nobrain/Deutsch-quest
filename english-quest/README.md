@@ -24,12 +24,14 @@ A2 から C1 までの英語を、**理解 → 4択演習 → 声に出す → �
 すべてブラウザで動作し、ログイン・サーバー・APIキーは不要。
 進捗、作文下書き、発話練習回数は端末の`localStorage`に保存される。
 端末間で自動同期しない。別端末にはJSONバックアップを使う。
+発音ボタンは録音済みMP3の再生に限定。MP3が未生成ならボタンは非表示、再生失敗したボタンも非表示。
+音声ファイルはGitHub Actionsから生成し、音声とマニフェストを一括コミット。音声はファイルとして配信されるため、ブラウザのWeb Speech APIの読み上げ機能には依存しない。
 マイクはブラウザの音声認識に対応した環境でのみ使用。認識精度・利用可否はブラウザ依存。
 発話や作文は**自動的なCEFR評価を行わない**。4択だけで英会話力を証明するものではない。
 
 ## デプロイ
 `english-quest/index.html`を静的ホスティングのサブパスで公開。
-必要ファイル：`index.html`、`content.js`、`manifest.webmanifest`、`icon.svg`、`sw.js`。
+必要ファイル：`index.html`、`content.js`、`manifest.webmanifest`、`icon.svg`、`sw.js`。録音済み音声を提供するには追加で `audio-map.json` と `audio/**/*.mp3` が必要。
 サービスワーカーのスコープは英語版のフォルダ内のみ。Deutsch Quest本体には触れない。
 GitHub Pagesが`main`の`/(root)`を公開元としている場合、上記URLでアクセス可能。
 
