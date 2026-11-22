@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>English Quest Tests</title><style>body{font:15px/1.7 system-ui,sans-serif;background:#f7f8fa;color:#172235;max-width:700px;padding:24px;margin:auto}li{padding:6px;border-bottom:1px solid #e1e6ed}.pass{color:#15845f}.fail{color:#b83245}</style></head><body><h1>English Quest · Data QA</h1><p>教材データの内容とID整合性を確認するテスト。</p><ol id="results"></ol><h2 id="total"></h2><script src="./content.js"></script><script>
+const d=window.EQ_DATA;const results=document.getElementById("results");let passed=0,failed=0;
+function test(name,condition){const li=document.createElement("li");li.className=condition?"pass":"fail";li.textContent=(condition?"✓ ":"✗ ")+name;results.appendChild(li);if(condition)passed++;else failed++;}
+const questions=d.units.flatMap(u=>u.questions).concat(d.readings.flatMap(r=>r.questions));
+const ids=questions.map(q=>q.id),levels=["A2","B1","B2","C1"];
+test("24 lessons",d.units.length===24);
+test("8 reading texts",d.readings.length===8);
+test("224 MCQs",questions.length===224);
+test("All question IDs unique",new Set(ids).size===ids.length);
+test("Exactly four distinct options per question",questions.every(q=>q.options.length===4&&new Set(q.options).size===4));
+test("All correct answers included",questions.every(q=>q.options.includes(q.correct)));
+test("Japanese gloss and explanation present",questions.every(q=>q.jp.length>2&&q.why.length>2));
+test("Question prompt present",questions.every(q=>q.stem.length>8));
+levels.forEach(l=>test(l+" has 56 MCQs",questions.filter(q=>q.level===l).length===56));
+levels.forEach(l=>test(l+" has six units",d.units.filter(u=>u.level===l).length===6));
+levels.forEach(l=>test(l+" has eight speaking tasks",d.speaking.filter(s=>s.level===l).length===8));
+levels.forEach(l=>test(l+" has four writing tasks",d.writing.filter(w=>w.level===l).length===4));
+test("Reading text exists for reading questions",questions.filter(q=>q.reading).every(q=>d.readings.some(r=>r.id===q.reading)));
+test("Question's unit exists",questions.every(q=>d.units.some(u=>u.id===q.unit)||d.readings.some(r=>r.id===q.unit)));
+document.getElementById("total").textContent=passed+" passed / "+failed+" failed";
+</script></body></html>
