@@ -7,6 +7,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="English Quest">
 <meta name="description" content="English Quest: A2〜C1の英語学習。224の4択問題、読解、発話、作文、間隔復習。">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="./icon.svg">
 <title>English Quest | A2 → C1</title>
 <style>
 :root{--bg:#f7f8fa;--paper:#fff;--ink:#172235;--muted:#677489;--line:#e1e6ed;--blue:#365ecf;--blue-light:#edf2ff;--good:#15845f;--good-light:#eaf9f2;--bad:#b83245;--bad-light:#fff0f1;--radius:18px;--shadow:0 6px 28px rgba(21,38,75,.035)}
@@ -125,6 +127,13 @@ document.addEventListener("change",function(e){if(e.target&&e.target.id==="impor
 document.addEventListener("keydown",function(e){if(e.target.matches("input,textarea")||e.metaKey||e.ctrlKey||e.altKey)return;if(page==="quiz"&&quiz&&quiz.answered===null&&/^[1-4]$/.test(e.key))answer(Number(e.key)-1);if(e.key==="Enter"&&e.target.classList.contains("identity"))navigate("home");});
 renderHome();
 })();
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker.register("./sw.js", {scope:"./"}).catch(function(){});
+  });
+}
 </script>
 </body>
 </html>
